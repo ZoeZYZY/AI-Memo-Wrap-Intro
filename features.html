@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore AI Memo Wrap features: instant capture, AI summarization, Notion sync, task extraction, and context-rich knowledge workflows." />
+  <title>Features | AI Memo Wrap</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand-ink: #0e1b2b;
+      --brand-sky: #2a9df4;
+      --brand-cyan: #17c3b2;
+    }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      color: var(--brand-ink);
+      background:
+        radial-gradient(circle at 90% 10%, #ecf7ff 0%, transparent 30%),
+        radial-gradient(circle at 15% 35%, #edfdf7 0%, transparent 35%),
+        #ffffff;
+    }
+
+    .feature-card {
+      box-shadow: 0 24px 52px rgba(13, 35, 60, 0.08);
+    }
+  </style>
+</head>
+<body>
+  <header class="sticky top-0 z-30 border-b border-slate-100 bg-white/80 backdrop-blur-md">
+    <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="grid h-10 w-10 place-items-center rounded-xl bg-emerald-100 text-lg font-extrabold text-emerald-600">AM</span>
+        <span class="text-lg font-extrabold tracking-tight">AI Memo Wrap</span>
+      </a>
+      <nav class="hidden items-center gap-6 text-sm font-semibold text-slate-600 md:flex">
+        <a href="index.html" class="hover:text-[var(--brand-sky)]">Home</a>
+        <a href="features.html" class="text-[var(--brand-ink)]">Features</a>
+        <a href="privacy.html" class="hover:text-[var(--brand-sky)]">Privacy</a>
+        <a href="terms.html" class="hover:text-[var(--brand-sky)]">Terms</a>
+      </nav>
+      <a href="index.html" class="rounded-full bg-[var(--brand-ink)] px-4 py-2 text-sm font-bold text-white hover:bg-slate-800">Back Home</a>
+    </div>
+  </header>
+
+  <main class="mx-auto w-full max-w-6xl px-6 pb-20 pt-16 md:pt-20">
+    <section class="mb-12 max-w-3xl">
+      <p class="mb-4 inline-flex rounded-full bg-sky-100 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.2em] text-sky-700">Product capabilities</p>
+      <h1 class="mb-5 text-5xl font-extrabold tracking-tight md:text-6xl">Features built for real research and daily execution</h1>
+      <p class="text-lg leading-relaxed text-slate-600">AI Memo Wrap is designed for creators, researchers, founders, and operators who want faster capture-to-action workflows.</p>
+    </section>
+
+    <section class="grid gap-6 md:grid-cols-2">
+      <article class="feature-card rounded-3xl border border-slate-100 bg-white p-7">
+        <h2 class="mb-3 text-2xl font-extrabold">1) One-Click Highlight Capture</h2>
+        <p class="text-slate-600">Select text on any webpage and save it instantly with source URL, page title, and timestamp. No copy-paste loops.</p>
+      </article>
+      <article class="feature-card rounded-3xl border border-slate-100 bg-white p-7">
+        <h2 class="mb-3 text-2xl font-extrabold">2) AI Memo Wrapping</h2>
+        <p class="text-slate-600">Transform raw snippets into concise, context-aware memos. You can keep original text plus AI summary in the same note block.</p>
+      </article>
+      <article class="feature-card rounded-3xl border border-slate-100 bg-white p-7">
+        <h2 class="mb-3 text-2xl font-extrabold">3) Task Extraction</h2>
+        <p class="text-slate-600">Turn ideas into action items. AI can extract TODOs and decision points from your captured content for execution-oriented workflows.</p>
+      </article>
+      <article class="feature-card rounded-3xl border border-slate-100 bg-white p-7">
+        <h2 class="mb-3 text-2xl font-extrabold">4) Notion Database Sync</h2>
+        <p class="text-slate-600">Send memos and tasks directly to your selected Notion database with pre-mapped fields to maintain structure at scale.</p>
+      </article>
+      <article class="feature-card rounded-3xl border border-slate-100 bg-white p-7">
+        <h2 class="mb-3 text-2xl font-extrabold">5) Source Traceability</h2>
+        <p class="text-slate-600">Every memo keeps source metadata so you can jump back to original context anytime and avoid information drift.</p>
+      </article>
+      <article class="feature-card rounded-3xl border border-slate-100 bg-white p-7">
+        <h2 class="mb-3 text-2xl font-extrabold">6) Lightweight Browser Workflow</h2>
+        <p class="text-slate-600">Works where your research happens: in-browser. No need to break focus by switching across multiple tools while reading.</p>
+      </article>
+    </section>
+
+    <section class="mt-14 rounded-3xl bg-slate-900 p-8 text-white">
+      <h2 class="text-3xl font-extrabold tracking-tight">Typical workflow</h2>
+      <ol class="mt-5 list-decimal space-y-2 pl-5 text-slate-200">
+        <li>Read an article, report, or document.</li>
+        <li>Highlight key paragraph and click wrap.</li>
+        <li>Generate AI summary and optional tasks.</li>
+        <li>Sync the output to Notion as structured records.</li>
+        <li>Review and execute from your knowledge base.</li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>
