@@ -3,20 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explore AI Memo Wrap features: instant capture, AI summarization, Notion sync, task extraction, and context-rich workflows." />
+  <meta name="description" content="AI Memo Wrap features: capture, AI wrapping, tags, sharing, and Notion sync." />
   <title>Features | AI Memo Wrap</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    :root { --brand-ink: #0e1b2b; --brand-sky: #2a9df4; }
+    :root { --brand-ink: #0e1b2b; --brand-sky: #2a9df4; --brand-cyan: #17c3b2; }
     body {
       font-family: "Manrope", sans-serif;
       color: var(--brand-ink);
-      background: radial-gradient(circle at 90% 10%, #ecf7ff 0%, transparent 30%), #ffffff;
+      background:
+        radial-gradient(circle at 90% 10%, #ecf7ff 0%, transparent 30%),
+        radial-gradient(circle at 15% 35%, #edfdf7 0%, transparent 35%),
+        #ffffff;
     }
-    .feature-card { box-shadow: 0 24px 52px rgba(13, 35, 60, 0.08); }
+    .card { box-shadow: 0 24px 52px rgba(13, 35, 60, 0.08); }
   </style>
 </head>
 <body>
@@ -32,54 +35,108 @@
         <a href="privacy.html" id="nav-privacy" class="hover:text-[var(--brand-sky)]">Privacy</a>
         <a href="terms.html" id="nav-terms" class="hover:text-[var(--brand-sky)]">Terms</a>
       </nav>
-      <button id="lang-toggle" class="rounded-full border border-slate-200 px-3 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100">中文</button>
+      <div class="flex items-center gap-3">
+        <button id="lang-toggle" class="rounded-full border border-slate-200 px-3 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100">中文</button>
+        <a id="install-cta-top" href="https://github.com/ZoeZYZY/AI-Memo-Wrap/releases" target="_blank" rel="noopener noreferrer" class="rounded-full bg-[var(--brand-ink)] px-4 py-2 text-sm font-bold text-white hover:bg-slate-800">Install</a>
+      </div>
     </div>
   </header>
 
   <main class="mx-auto w-full max-w-6xl px-6 pb-20 pt-16 md:pt-20">
     <section class="mb-12 max-w-3xl">
       <p id="tag" class="mb-4 inline-flex rounded-full bg-sky-100 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.2em] text-sky-700">Product capabilities</p>
-      <h1 id="title" class="mb-5 text-5xl font-extrabold tracking-tight md:text-6xl">Features built for real research and daily execution</h1>
-      <p id="desc" class="text-lg leading-relaxed text-slate-600">AI Memo Wrap is designed for creators, researchers, founders, and operators who want faster capture-to-action workflows.</p>
+      <h1 id="title" class="mb-5 text-5xl font-extrabold tracking-tight md:text-6xl">Features built for research, execution, and sharing</h1>
+      <p id="desc" class="text-lg leading-relaxed text-slate-600">Beyond capture and sync, AI Memo Wrap supports memo tags, content sharing, and structured output workflows.</p>
     </section>
 
     <section class="grid gap-6 md:grid-cols-2">
-      <article class="feature-card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f1t" class="mb-3 text-2xl font-extrabold">1) One-Click Highlight Capture</h2><p id="f1d" class="text-slate-600">Select text on any webpage and save it instantly with source URL, page title, and timestamp.</p></article>
-      <article class="feature-card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f2t" class="mb-3 text-2xl font-extrabold">2) AI Memo Wrapping</h2><p id="f2d" class="text-slate-600">Transform raw snippets into concise, context-aware memos while preserving the original quote.</p></article>
-      <article class="feature-card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f3t" class="mb-3 text-2xl font-extrabold">3) Task Extraction</h2><p id="f3d" class="text-slate-600">Extract TODOs and decision points from captured text for execution-oriented workflows.</p></article>
-      <article class="feature-card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f4t" class="mb-3 text-2xl font-extrabold">4) Notion Database Sync</h2><p id="f4d" class="text-slate-600">Send memos and tasks into your chosen Notion database with consistent structure.</p></article>
-      <article class="feature-card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f5t" class="mb-3 text-2xl font-extrabold">5) Source Traceability</h2><p id="f5d" class="text-slate-600">Keep source URL and context so every memo remains verifiable and reviewable.</p></article>
-      <article class="feature-card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f6t" class="mb-3 text-2xl font-extrabold">6) Lightweight Browser Workflow</h2><p id="f6d" class="text-slate-600">Capture and organize without leaving your browser reading flow.</p></article>
+      <article class="card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f1t" class="mb-3 text-2xl font-extrabold">1) One-Click Highlight Capture</h2><p id="f1d" class="text-slate-600">Select text on any webpage and save with source URL, title, and timestamp.</p></article>
+      <article class="card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f2t" class="mb-3 text-2xl font-extrabold">2) AI Memo Wrapping</h2><p id="f2d" class="text-slate-600">Convert snippets into concise, context-aware memos and action-ready tasks.</p></article>
+      <article class="card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f3t" class="mb-3 text-2xl font-extrabold">3) Memo Tags & Filters</h2><p id="f3d" class="text-slate-600">Add tags, filter by #tag, and recover quickly using active filter chips.</p></article>
+      <article class="card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f4t" class="mb-3 text-2xl font-extrabold">4) Share Outputs</h2><p id="f4d" class="text-slate-600">Copy/share single memo or digest output to teammates, docs, or social channels.</p></article>
+      <article class="card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f5t" class="mb-3 text-2xl font-extrabold">5) Notion Database Sync</h2><p id="f5d" class="text-slate-600">Sync memos and tasks into your Notion database with stable structure.</p></article>
+      <article class="card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f6t" class="mb-3 text-2xl font-extrabold">6) Local-first + Optional Cloud</h2><p id="f6d" class="text-slate-600">Use local storage by default and enable cloud sync when cross-device collaboration is needed.</p></article>
+    </section>
+
+    <section class="mt-14 rounded-3xl border border-slate-100 bg-white p-8 card">
+      <h2 id="wf-title" class="text-3xl font-extrabold tracking-tight">Typical workflow</h2>
+      <p id="wf-desc" class="mt-2 text-slate-600">Graph view of a full capture-to-share execution loop.</p>
+
+      <div class="mt-8 hidden items-center justify-between gap-3 md:flex">
+        <div class="w-full rounded-2xl bg-slate-50 p-4 text-center">
+          <p class="text-xs font-bold text-sky-700" id="w1l">STEP 1</p>
+          <p class="mt-1 font-extrabold" id="w1t">Capture Highlight</p>
+        </div>
+        <div class="text-2xl text-slate-400">→</div>
+        <div class="w-full rounded-2xl bg-slate-50 p-4 text-center">
+          <p class="text-xs font-bold text-sky-700" id="w2l">STEP 2</p>
+          <p class="mt-1 font-extrabold" id="w2t">AI Wrap Memo/Task</p>
+        </div>
+        <div class="text-2xl text-slate-400">→</div>
+        <div class="w-full rounded-2xl bg-slate-50 p-4 text-center">
+          <p class="text-xs font-bold text-sky-700" id="w3l">STEP 3</p>
+          <p class="mt-1 font-extrabold" id="w3t">Tag + Share Output</p>
+        </div>
+        <div class="text-2xl text-slate-400">→</div>
+        <div class="w-full rounded-2xl bg-slate-50 p-4 text-center">
+          <p class="text-xs font-bold text-sky-700" id="w4l">STEP 4</p>
+          <p class="mt-1 font-extrabold" id="w4t">Sync to Notion</p>
+        </div>
+      </div>
+
+      <div class="mt-6 space-y-3 md:hidden">
+        <div class="rounded-xl bg-slate-50 p-4 text-center"><p class="text-xs font-bold text-sky-700" id="wm1l">STEP 1</p><p class="mt-1 font-extrabold" id="wm1t">Capture Highlight</p></div>
+        <div class="text-center text-xl text-slate-400">↓</div>
+        <div class="rounded-xl bg-slate-50 p-4 text-center"><p class="text-xs font-bold text-sky-700" id="wm2l">STEP 2</p><p class="mt-1 font-extrabold" id="wm2t">AI Wrap Memo/Task</p></div>
+        <div class="text-center text-xl text-slate-400">↓</div>
+        <div class="rounded-xl bg-slate-50 p-4 text-center"><p class="text-xs font-bold text-sky-700" id="wm3l">STEP 3</p><p class="mt-1 font-extrabold" id="wm3t">Tag + Share Output</p></div>
+        <div class="text-center text-xl text-slate-400">↓</div>
+        <div class="rounded-xl bg-slate-50 p-4 text-center"><p class="text-xs font-bold text-sky-700" id="wm4l">STEP 4</p><p class="mt-1 font-extrabold" id="wm4t">Sync to Notion</p></div>
+      </div>
+
+      <div class="mt-8">
+        <a id="wf-install-cta" href="https://github.com/ZoeZYZY/AI-Memo-Wrap/releases" target="_blank" rel="noopener noreferrer" class="inline-flex rounded-2xl bg-[var(--brand-sky)] px-6 py-3 text-sm font-extrabold text-white hover:bg-sky-600">Install AI Memo Wrap</a>
+      </div>
     </section>
   </main>
 
   <script>
     const i18n = {
       en: {
-        "nav-home": "Home", "nav-features": "Features", "nav-privacy": "Privacy", "nav-terms": "Terms",
-        "tag": "Product capabilities", "title": "Features built for real research and daily execution",
-        "desc": "AI Memo Wrap is designed for creators, researchers, founders, and operators who want faster capture-to-action workflows.",
-        "f1t": "1) One-Click Highlight Capture", "f1d": "Select text on any webpage and save it instantly with source URL, page title, and timestamp.",
-        "f2t": "2) AI Memo Wrapping", "f2d": "Transform raw snippets into concise, context-aware memos while preserving the original quote.",
-        "f3t": "3) Task Extraction", "f3d": "Extract TODOs and decision points from captured text for execution-oriented workflows.",
-        "f4t": "4) Notion Database Sync", "f4d": "Send memos and tasks into your chosen Notion database with consistent structure.",
-        "f5t": "5) Source Traceability", "f5d": "Keep source URL and context so every memo remains verifiable and reviewable.",
-        "f6t": "6) Lightweight Browser Workflow", "f6d": "Capture and organize without leaving your browser reading flow."
+        "nav-home": "Home", "nav-features": "Features", "nav-privacy": "Privacy", "nav-terms": "Terms", "install-cta-top": "Install",
+        "tag": "Product capabilities", "title": "Features built for research, execution, and sharing",
+        "desc": "Beyond capture and sync, AI Memo Wrap supports memo tags, content sharing, and structured output workflows.",
+        "f1t": "1) One-Click Highlight Capture", "f1d": "Select text on any webpage and save with source URL, title, and timestamp.",
+        "f2t": "2) AI Memo Wrapping", "f2d": "Convert snippets into concise, context-aware memos and action-ready tasks.",
+        "f3t": "3) Memo Tags & Filters", "f3d": "Add tags, filter by #tag, and recover quickly using active filter chips.",
+        "f4t": "4) Share Outputs", "f4d": "Copy/share single memo or digest output to teammates, docs, or social channels.",
+        "f5t": "5) Notion Database Sync", "f5d": "Sync memos and tasks into your Notion database with stable structure.",
+        "f6t": "6) Local-first + Optional Cloud", "f6d": "Use local storage by default and enable cloud sync when cross-device collaboration is needed.",
+        "wf-title": "Typical workflow", "wf-desc": "Graph view of a full capture-to-share execution loop.",
+        "w1l": "STEP 1", "w1t": "Capture Highlight", "w2l": "STEP 2", "w2t": "AI Wrap Memo/Task", "w3l": "STEP 3", "w3t": "Tag + Share Output", "w4l": "STEP 4", "w4t": "Sync to Notion",
+        "wm1l": "STEP 1", "wm1t": "Capture Highlight", "wm2l": "STEP 2", "wm2t": "AI Wrap Memo/Task", "wm3l": "STEP 3", "wm3t": "Tag + Share Output", "wm4l": "STEP 4", "wm4t": "Sync to Notion",
+        "wf-install-cta": "Install AI Memo Wrap"
       },
       zh: {
-        "nav-home": "首页", "nav-features": "功能", "nav-privacy": "隐私", "nav-terms": "条款",
-        "tag": "产品能力", "title": "为真实研究与执行场景打造的功能",
-        "desc": "AI Memo Wrap 面向创作者、研究者与团队执行者，帮助你更快完成从信息捕获到行动落地。",
-        "f1t": "1) 一键高亮捕获", "f1d": "在任意网页选中文字即可保存，自动带上来源链接、标题和时间信息。",
-        "f2t": "2) AI 备忘包裹", "f2d": "将原始片段整理为简洁且有上下文的备忘，同时保留原文引用。",
-        "f3t": "3) 任务提取", "f3d": "从内容中提取待办项和决策点，直接进入执行流程。",
-        "f4t": "4) Notion 数据库同步", "f4d": "将备忘和任务写入你指定的 Notion 数据库并保持结构一致。",
-        "f5t": "5) 来源可追溯", "f5d": "每条备忘保留来源和上下文，便于复查与验证。",
-        "f6t": "6) 轻量浏览器工作流", "f6d": "阅读、捕获、整理都在浏览器内完成，不打断思路。"
+        "nav-home": "首页", "nav-features": "功能", "nav-privacy": "隐私", "nav-terms": "条款", "install-cta-top": "安装",
+        "tag": "产品能力", "title": "覆盖研究、执行与分享场景的完整功能",
+        "desc": "除了捕获和同步，AI Memo Wrap 还支持 memo 标签、内容分享和结构化输出工作流。",
+        "f1t": "1) 一键高亮捕获", "f1d": "在任意网页选中文字并保存来源链接、标题与时间。",
+        "f2t": "2) AI 备忘包裹", "f2d": "将片段转换为有上下文的备忘或可执行任务。",
+        "f3t": "3) Memo 标签与过滤", "f3d": "支持添加标签、#tag 检索与筛选恢复。",
+        "f4t": "4) 输出分享", "f4d": "支持单条 memo 或 digest 的复制/分享，便于协作传播。",
+        "f5t": "5) Notion 数据库同步", "f5d": "将备忘与任务稳定写入 Notion 数据库。",
+        "f6t": "6) 本地优先 + 可选云同步", "f6d": "默认本地存储，需要跨设备协作时可开启云同步。",
+        "wf-title": "Typical workflow", "wf-desc": "图形化展示完整的捕获到分享执行闭环。",
+        "w1l": "步骤 1", "w1t": "高亮捕获", "w2l": "步骤 2", "w2t": "AI 包裹备忘/任务", "w3l": "步骤 3", "w3t": "标签 + 分享输出", "w4l": "步骤 4", "w4t": "同步到 Notion",
+        "wm1l": "步骤 1", "wm1t": "高亮捕获", "wm2l": "步骤 2", "wm2t": "AI 包裹备忘/任务", "wm3l": "步骤 3", "wm3t": "标签 + 分享输出", "wm4l": "步骤 4", "wm4t": "同步到 Notion",
+        "wf-install-cta": "安装 AI Memo Wrap"
       }
     };
+
     const toggle = document.getElementById("lang-toggle");
     let lang = localStorage.getItem("aiMemoWrapLang") || (navigator.language.startsWith("zh") ? "zh" : "en");
+
     function applyLang() {
       document.documentElement.lang = lang;
       const dict = i18n[lang];
@@ -89,11 +146,13 @@
       });
       toggle.textContent = lang === "en" ? "中文" : "EN";
     }
+
     toggle.addEventListener("click", () => {
       lang = lang === "en" ? "zh" : "en";
       localStorage.setItem("aiMemoWrapLang", lang);
       applyLang();
     });
+
     applyLang();
   </script>
 </body>
