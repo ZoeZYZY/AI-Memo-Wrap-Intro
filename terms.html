@@ -1,29 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Terms of Use | AI Memo Wrap</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use | AI Memo Wrap</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>body { font-family: "Manrope", sans-serif; }</style>
 </head>
 <body class="bg-slate-50 text-slate-800">
-    <div class="mx-auto max-w-3xl px-6 py-12">
-        <header class="mb-10">
-            <a href="index.html" class="text-sky-700 font-semibold">← Back to Home</a>
-            <nav class="mt-4 flex gap-4 text-sm text-slate-600">
-                <a href="features.html" class="hover:text-slate-900">Features</a>
-                <a href="privacy.html" class="hover:text-slate-900">Privacy</a>
-                <a href="terms.html" class="font-bold text-slate-900">Terms</a>
-            </nav>
-        </header>
+  <div class="mx-auto max-w-3xl px-6 py-12">
+    <header class="mb-10 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="logo.svg" alt="AI Memo Wrap logo" class="h-8 w-8 object-contain" />
+        <span class="font-extrabold">AI Memo Wrap</span>
+      </a>
+      <button id="lang-toggle" class="rounded-full border border-slate-200 px-3 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100">中文</button>
+    </header>
 
-        <h1 class="mb-6 text-4xl font-black tracking-tight">Terms of Use</h1>
-        <div class="space-y-6 leading-relaxed text-slate-700">
-            <p><strong>1. Acceptance:</strong> By using AI Memo Wrap, you agree to these terms.</p>
-            <p><strong>2. User Responsibility:</strong> You are responsible for your Notion authorization setup and the accuracy of your captured content.</p>
-            <p><strong>3. Service Scope:</strong> AI Memo Wrap assists with memo capture and organization but does not guarantee third-party availability.</p>
-            <p><strong>4. Liability:</strong> We are not liable for data loss caused by third-party outages, user misconfiguration, or accidental deletion.</p>
-        </div>
+    <nav class="mb-8 flex gap-4 text-sm text-slate-600">
+      <a href="features.html" id="nav-features" class="hover:text-slate-900">Features</a>
+      <a href="privacy.html" id="nav-privacy" class="hover:text-slate-900">Privacy</a>
+      <a href="terms.html" id="nav-terms" class="font-bold text-slate-900">Terms</a>
+    </nav>
+
+    <h1 id="title" class="mb-6 text-4xl font-black tracking-tight">Terms of Use</h1>
+    <div class="space-y-6 leading-relaxed text-slate-700">
+      <p id="p1"><strong>1. Acceptance:</strong> By using AI Memo Wrap, you agree to these terms.</p>
+      <p id="p2"><strong>2. User Responsibility:</strong> You are responsible for your Notion authorization setup and the accuracy of your captured content.</p>
+      <p id="p3"><strong>3. Service Scope:</strong> AI Memo Wrap assists with memo capture and organization but does not guarantee third-party availability.</p>
+      <p id="p4"><strong>4. Liability:</strong> We are not liable for data loss caused by third-party outages, user misconfiguration, or accidental deletion.</p>
     </div>
+  </div>
+
+  <script>
+    const i18n = {
+      en: {
+        "nav-features": "Features", "nav-privacy": "Privacy", "nav-terms": "Terms", "title": "Terms of Use",
+        "p1": "1. Acceptance: By using AI Memo Wrap, you agree to these terms.",
+        "p2": "2. User Responsibility: You are responsible for your Notion authorization setup and the accuracy of your captured content.",
+        "p3": "3. Service Scope: AI Memo Wrap assists with memo capture and organization but does not guarantee third-party availability.",
+        "p4": "4. Liability: We are not liable for data loss caused by third-party outages, user misconfiguration, or accidental deletion."
+      },
+      zh: {
+        "nav-features": "功能", "nav-privacy": "隐私", "nav-terms": "条款", "title": "使用条款",
+        "p1": "1. 接受条款：使用 AI Memo Wrap 即表示你同意本条款。",
+        "p2": "2. 用户责任：你需对自己的 Notion 授权配置以及捕获内容准确性负责。",
+        "p3": "3. 服务范围：AI Memo Wrap 提供捕获与整理能力，但不保证第三方服务可用性。",
+        "p4": "4. 责任限制：对于第三方故障、用户误配置或误删导致的数据损失，我们不承担责任。"
+      }
+    };
+    const toggle = document.getElementById("lang-toggle");
+    let lang = localStorage.getItem("aiMemoWrapLang") || (navigator.language.startsWith("zh") ? "zh" : "en");
+    function applyLang() {
+      document.documentElement.lang = lang;
+      const dict = i18n[lang];
+      Object.keys(dict).forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = dict[id];
+      });
+      toggle.textContent = lang === "en" ? "中文" : "EN";
+    }
+    toggle.addEventListener("click", () => {
+      lang = lang === "en" ? "zh" : "en";
+      localStorage.setItem("aiMemoWrapLang", lang);
+      applyLang();
+    });
+    applyLang();
+  </script>
 </body>
 </html>
