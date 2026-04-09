@@ -3,72 +3,127 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI Memo Wrap privacy policy and Chrome Web Store data disclosure details." />
   <title>Privacy Policy | AI Memo Wrap</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>body { font-family: "Manrope", sans-serif; }</style>
+  <style>
+    body { font-family: "Manrope", sans-serif; }
+    .card { border: 1px solid #e2e8f0; border-radius: 16px; background: #fff; }
+  </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
-  <div class="mx-auto max-w-3xl px-6 py-12">
-    <header class="mb-10 flex items-center justify-between">
+  <div class="mx-auto max-w-5xl px-6 py-10">
+    <header class="mb-8 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-2">
         <img src="logo.svg" alt="AI Memo Wrap logo" class="h-8 w-8 object-contain" />
         <span class="font-extrabold">AI Memo Wrap</span>
       </a>
-      <button id="lang-toggle" class="rounded-full border border-slate-200 px-3 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100">中文</button>
+      <nav class="flex gap-4 text-sm text-slate-600">
+        <a href="index.html" class="hover:text-slate-900">Home</a>
+        <a href="features.html" class="hover:text-slate-900">Features</a>
+        <a href="privacy.html" class="font-bold text-slate-900">Privacy</a>
+        <a href="terms.html" class="hover:text-slate-900">Terms</a>
+      </nav>
     </header>
 
-    <nav class="mb-8 flex gap-4 text-sm text-slate-600">
-      <a href="features.html" id="nav-features" class="hover:text-slate-900">Features</a>
-      <a href="privacy.html" id="nav-privacy" class="font-bold text-slate-900">Privacy</a>
-      <a href="terms.html" id="nav-terms" class="hover:text-slate-900">Terms</a>
-    </nav>
+    <main class="space-y-6">
+      <section class="card p-6">
+        <h1 class="text-3xl font-black tracking-tight">Privacy Policy</h1>
+        <p class="mt-2 text-sm text-slate-500">Last updated: 2026-04-09</p>
+        <p class="mt-4 text-slate-700 leading-relaxed">
+          AI Memo Wrap is a browser extension for capturing selected text from webpages and organizing it into memos.
+          This page also includes Chrome Web Store data disclosure details.
+        </p>
+      </section>
 
-    <h1 id="title" class="mb-6 text-4xl font-black tracking-tight">Privacy Policy</h1>
-    <div class="space-y-6 leading-relaxed text-slate-700">
-      <p id="p1"><strong>1. Data Collection:</strong> AI Memo Wrap only processes the text and page URL you explicitly choose to wrap. There is no background browsing surveillance.</p>
-      <p id="p2"><strong>2. Storage:</strong> Captured content is stored locally first. Notion sync happens only after your explicit action and authorization.</p>
-      <p id="p3"><strong>3. Security:</strong> We do not sell user data. Access credentials remain under user control.</p>
-      <p id="p4"><strong>4. Third-party Services:</strong> Notion and browser platform behaviors are governed by their own privacy terms.</p>
-    </div>
+      <section class="card p-6">
+        <h2 class="text-xl font-extrabold">What Data We Process</h2>
+        <div class="mt-4 space-y-4 text-slate-700 leading-relaxed">
+          <div>
+            <p class="font-bold">1) Local memo data (default mode)</p>
+            <ul class="list-disc pl-5">
+              <li>Selected text content captured by user action</li>
+              <li>Memo metadata (title, tags, category, timestamp, URL/source)</li>
+              <li>Local settings (language, UI preferences, feature toggles)</li>
+            </ul>
+            <p class="mt-1 text-sm text-slate-500">Stored locally in browser via <code>chrome.storage.local</code>.</p>
+          </div>
+          <div>
+            <p class="font-bold">2) Optional cloud account data (only when Cloud Sync is enabled)</p>
+            <ul class="list-disc pl-5">
+              <li>Email address used for Supabase authentication</li>
+              <li>Cloud user identifier and session tokens</li>
+              <li>Memo records user chooses to sync</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold">3) Optional Notion sync data (only when Notion is connected)</p>
+            <ul class="list-disc pl-5">
+              <li>OAuth authorization result for user’s own Notion workspace/account</li>
+              <li>Memo content and metadata explicitly synced by user</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="card p-6">
+        <h2 class="text-xl font-extrabold">Chrome Web Store Data Disclosure</h2>
+        <div class="mt-4 grid gap-4 md:grid-cols-2">
+          <div class="rounded-xl bg-slate-50 p-4">
+            <p class="font-bold">Do you sell personal data?</p>
+            <p class="mt-1">No.</p>
+          </div>
+          <div class="rounded-xl bg-slate-50 p-4">
+            <p class="font-bold">Is data collection optional?</p>
+            <p class="mt-1">Yes for cloud sync and Notion sync. Local capture works without account login.</p>
+          </div>
+          <div class="rounded-xl bg-slate-50 p-4">
+            <p class="font-bold">Encrypted in transit?</p>
+            <p class="mt-1">Yes, network communication uses HTTPS (Supabase and Notion API/edge functions).</p>
+          </div>
+          <div class="rounded-xl bg-slate-50 p-4">
+            <p class="font-bold">Deletion controls</p>
+            <p class="mt-1">Users can delete local memos in extension UI; cloud and Notion data can be removed from user-owned services.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card p-6">
+        <h2 class="text-xl font-extrabold">How We Use Data</h2>
+        <ul class="mt-4 list-disc pl-5 text-slate-700 leading-relaxed">
+          <li>Provide capture, memo management, filtering, and export functionality.</li>
+          <li>Sync memos across devices only when user enables Cloud Sync.</li>
+          <li>Send memos to user’s own Notion workspace only on user-triggered sync.</li>
+        </ul>
+      </section>
+
+      <section class="card p-6">
+        <h2 class="text-xl font-extrabold">Third-Party Services</h2>
+        <ul class="mt-4 list-disc pl-5 text-slate-700 leading-relaxed">
+          <li>Supabase (optional authentication and cloud storage)</li>
+          <li>Notion API (optional user-authorized sync)</li>
+        </ul>
+      </section>
+
+      <section class="card p-6">
+        <h2 class="text-xl font-extrabold">Contact</h2>
+        <p class="mt-3 text-slate-700">For privacy-related questions: <a class="text-blue-600 hover:underline" href="mailto:zoezhou85@hotmail.com">zoezhou85@hotmail.com</a></p>
+      </section>
+
+      <section class="card p-6">
+        <h2 class="text-xl font-extrabold">中文说明（简版）</h2>
+        <ul class="mt-4 list-disc pl-5 text-slate-700 leading-relaxed">
+          <li>默认本地存储：仅在浏览器本地保存备忘和设置。</li>
+          <li>Cloud Sync 与 Notion 同步均为可选，且由用户主动触发。</li>
+          <li>不会出售个人数据，不会用于广告画像。</li>
+          <li>传输采用 HTTPS。</li>
+          <li>用户可在插件中删除本地数据；云端与 Notion 数据由用户在对应服务中管理删除。</li>
+        </ul>
+      </section>
+    </main>
   </div>
-
-  <script>
-    const i18n = {
-      en: {
-        "nav-features": "Features", "nav-privacy": "Privacy", "nav-terms": "Terms", "title": "Privacy Policy",
-        "p1": "1. Data Collection: AI Memo Wrap only processes the text and page URL you explicitly choose to wrap. There is no background browsing surveillance.",
-        "p2": "2. Storage: Captured content is stored locally first. Notion sync happens only after your explicit action and authorization.",
-        "p3": "3. Security: We do not sell user data. Access credentials remain under user control.",
-        "p4": "4. Third-party Services: Notion and browser platform behaviors are governed by their own privacy terms."
-      },
-      zh: {
-        "nav-features": "功能", "nav-privacy": "隐私", "nav-terms": "条款", "title": "隐私政策",
-        "p1": "1. 数据收集：AI Memo Wrap 仅处理你主动选择包裹的文本与页面链接，不会进行后台浏览监控。",
-        "p2": "2. 存储方式：内容优先本地保存，只有在你主动操作并授权后才会同步到 Notion。",
-        "p3": "3. 安全性：我们不会出售用户数据，访问凭证由你本人控制。",
-        "p4": "4. 第三方服务：Notion 与浏览器平台行为受其各自隐私政策约束。"
-      }
-    };
-    const toggle = document.getElementById("lang-toggle");
-    let lang = localStorage.getItem("aiMemoWrapLang") || (navigator.language.startsWith("zh") ? "zh" : "en");
-    function applyLang() {
-      document.documentElement.lang = lang;
-      const dict = i18n[lang];
-      Object.keys(dict).forEach((id) => {
-        const el = document.getElementById(id);
-        if (el) el.textContent = dict[id];
-      });
-      toggle.textContent = lang === "en" ? "中文" : "EN";
-    }
-    toggle.addEventListener("click", () => {
-      lang = lang === "en" ? "zh" : "en";
-      localStorage.setItem("aiMemoWrapLang", lang);
-      applyLang();
-    });
-    applyLang();
-  </script>
 </body>
 </html>
