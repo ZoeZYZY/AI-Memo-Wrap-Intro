@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI Memo Wrap authentication callback page for email verification and password reset." />
+  <title>AI Memo Wrap | Auth</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: "Manrope", sans-serif; }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-900">
+  <main class="mx-auto flex min-h-screen w-full max-w-2xl items-center px-6 py-10">
+    <section class="w-full rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+      <div class="mb-6 flex items-center justify-between">
+        <a href="index.html" class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-200">← Back</a>
+        <button id="lang-toggle" class="rounded-full border border-slate-200 px-3 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100">中文</button>
+      </div>
+
+      <h1 id="title" class="text-3xl font-extrabold tracking-tight">Account verification</h1>
+      <p id="subtitle" class="mt-2 text-sm text-slate-600">Processing your secure link...</p>
+
+      <div id="status-box" class="mt-6 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700"></div>
+
+      <form id="reset-form" class="mt-6 hidden space-y-3">
+        <label class="block">
+          <span id="label-password" class="mb-1 block text-xs font-semibold text-slate-700">New Password</span>
+          <input id="new-password" type="password" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-[#2A9DF4]" />
+        </label>
+        <label class="block">
+          <span id="label-confirm" class="mb-1 block text-xs font-semibold text-slate-700">Confirm Password</span>
+          <input id="confirm-password" type="password" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-[#2A9DF4]" />
+        </label>
+        <p id="password-tip" class="text-xs text-slate-500">Use at least 8 characters, with lowercase, uppercase, and a number.</p>
+        <button id="submit-btn" type="submit" class="w-full rounded-xl bg-[#2A9DF4] px-4 py-2.5 text-sm font-bold text-white hover:bg-[#1B86DB]">Update Password</button>
+      </form>
+
+      <div class="mt-6 text-center">
+        <a id="open-home" href="index.html" class="text-sm font-semibold text-[#2A9DF4] hover:underline">Open AI Memo Wrap home</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
+    const SUPABASE_URL = "https://yeepxegzcxnekromwrmq.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InllZXB4ZWd6Y3huZWtyb213cm1xIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUzODAyNjUsImV4cCI6MjA5MDk1NjI2NX0.LUOIa2v1kg2o4L25Vdew9k0VK57Vb1EE-NKgNpOSP54";
+
+    const i18n = {
+      en: {
+        title: "Account verification",
+        subtitle: "Processing your secure link...",
+        statusInit: "Validating link...",
+        statusRecoveryReady: "Password reset verified. Please set your new password below.",
+        statusRecoveryDone: "Password updated successfully. You can return to the extension and sign in.",
+        statusSignupDone: "Email verified successfully. You can now sign in to Cloud Sync in the extension.",
+        statusNoSession: "This link is invalid or expired. Please request a new verification/reset email.",
+        statusUnknown: "Auth link processed. If you still cannot sign in, please request a fresh email.",
+        labelPassword: "New Password",
+        labelConfirm: "Confirm Password",
+        passwordTip: "Use at least 8 characters, with lowercase, uppercase, and a number.",
+        btnUpdate: "Update Password",
+        openHome: "Open AI Memo Wrap home",
+        errMismatch: "Passwords do not match.",
+        errWeak: "Password does not meet policy requirements.",
+        errGeneric: "Unable to update password. Please request a new reset email."
+      },
+      zh: {
+        title: "账户验证",
+        subtitle: "正在处理你的安全链接...",
+        statusInit: "正在校验链接...",
+        statusRecoveryReady: "重置链接已验证，请在下方设置新密码。",
+        statusRecoveryDone: "密码更新成功。请回到扩展中重新登录。",
+        statusSignupDone: "邮箱验证成功。现在可在扩展中登录 Cloud Sync。",
+        statusNoSession: "链接无效或已过期，请重新申请验证/重置邮件。",
+        statusUnknown: "链接已处理。如仍无法登录，请重新申请邮件。",
+        labelPassword: "新密码",
+        labelConfirm: "确认新密码",
+        passwordTip: "至少 8 位，需包含小写、大写和数字。",
+        btnUpdate: "更新密码",
+        openHome: "打开 AI Memo Wrap 官网",
+        errMismatch: "两次输入的密码不一致。",
+        errWeak: "密码不符合安全要求。",
+        errGeneric: "密码更新失败，请重新申请重置邮件。"
+      }
+    };
+
+    const langToggle = document.getElementById("lang-toggle");
+    const statusBox = document.getElementById("status-box");
+    const resetForm = document.getElementById("reset-form");
+    const submitBtn = document.getElementById("submit-btn");
+    const newPasswordInput = document.getElementById("new-password");
+    const confirmPasswordInput = document.getElementById("confirm-password");
+
+    let lang = localStorage.getItem("aiMemoWrapLang") || (navigator.language.startsWith("zh") ? "zh" : "en");
+    const t = () => i18n[lang];
+
+    function applyLang() {
+      document.documentElement.lang = lang;
+      document.getElementById("title").textContent = t().title;
+      document.getElementById("subtitle").textContent = t().subtitle;
+      document.getElementById("label-password").textContent = t().labelPassword;
+      document.getElementById("label-confirm").textContent = t().labelConfirm;
+      document.getElementById("password-tip").textContent = t().passwordTip;
+      submitBtn.textContent = t().btnUpdate;
+      document.getElementById("open-home").textContent = t().openHome;
+      langToggle.textContent = lang === "en" ? "中文" : "EN";
+    }
+
+    langToggle.addEventListener("click", () => {
+      lang = lang === "en" ? "zh" : "en";
+      localStorage.setItem("aiMemoWrapLang", lang);
+      applyLang();
+    });
+
+    function setStatus(text, isError = false) {
+      statusBox.textContent = text;
+      statusBox.className = isError
+        ? "mt-6 rounded-xl border border-[#FFDAD6] bg-[#FFF1F0] px-4 py-3 text-sm text-[#BA1A1A]"
+        : "mt-6 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700";
+    }
+
+    const client = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+      auth: {
+        persistSession: false,
+        autoRefreshToken: false,
+        detectSessionInUrl: true
+      }
+    });
+
+    applyLang();
+    setStatus(t().statusInit);
+
+    async function init() {
+      const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ""));
+      const queryParams = new URLSearchParams(window.location.search);
+      const flowType = hashParams.get("type") || queryParams.get("type") || "";
+
+      const { data: sessionData } = await client.auth.getSession();
+      const hasSession = Boolean(sessionData?.session?.access_token);
+
+      // Avoid token leakage in visible URL.
+      if (window.location.hash) {
+        history.replaceState({}, document.title, `${window.location.pathname}${window.location.search}`);
+      }
+
+      if (!hasSession) {
+        setStatus(t().statusNoSession, true);
+        return;
+      }
+
+      if (flowType === "recovery") {
+        setStatus(t().statusRecoveryReady);
+        resetForm.classList.remove("hidden");
+        return;
+      }
+
+      if (flowType === "signup" || flowType === "invite" || flowType === "magiclink") {
+        setStatus(t().statusSignupDone);
+        return;
+      }
+
+      setStatus(t().statusUnknown);
+    }
+
+    resetForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const nextPassword = newPasswordInput.value.trim();
+      const confirmPassword = confirmPasswordInput.value.trim();
+
+      if (nextPassword !== confirmPassword) {
+        setStatus(t().errMismatch, true);
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "...";
+      const { error } = await client.auth.updateUser({ password: nextPassword });
+      submitBtn.disabled = false;
+      submitBtn.textContent = t().btnUpdate;
+
+      if (error) {
+        const msg = (error.message || "").toLowerCase();
+        if (msg.includes("password")) {
+          setStatus(t().errWeak, true);
+        } else {
+          setStatus(t().errGeneric, true);
+        }
+        return;
+      }
+
+      resetForm.classList.add("hidden");
+      setStatus(t().statusRecoveryDone);
+    });
+
+    init();
+  </script>
+</body>
+</html>
