@@ -26,6 +26,26 @@
 
       <div id="status-box" class="mt-6 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700"></div>
 
+      <div id="next-steps" class="mt-4 rounded-xl border border-sky-200 bg-sky-50 px-4 py-3 text-xs leading-relaxed text-slate-700">
+        <p id="next-steps-title" class="font-bold text-slate-900">Next steps</p>
+        <ol id="next-steps-list" class="mt-1 list-decimal space-y-1 pl-4">
+          <li>Return to the AI Memo Wrap extension panel.</li>
+          <li>Enter the same email and password in Cloud Sync.</li>
+          <li>Click Sign In (this page does not auto-login your extension).</li>
+        </ol>
+        <div class="mt-3 grid gap-2 sm:grid-cols-2">
+          <button id="open-ext-btn" type="button" class="rounded-lg bg-[#2A9DF4] px-3 py-2 text-xs font-bold text-white hover:bg-[#1B86DB]">
+            Open Extensions Page
+          </button>
+          <button id="copy-steps-btn" type="button" class="rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100">
+            Copy sign-in steps
+          </button>
+        </div>
+        <p id="next-steps-tip" class="mt-2 text-[11px] text-slate-600">
+          If Chrome blocks opening extension pages from web, open chrome://extensions manually and launch AI Memo Wrap.
+        </p>
+      </div>
+
       <form id="reset-form" class="mt-6 hidden space-y-3">
         <label class="block">
           <span id="label-password" class="mb-1 block text-xs font-semibold text-slate-700">New Password</span>
@@ -66,6 +86,14 @@
         passwordTip: "Use at least 8 characters, with lowercase, uppercase, and a number.",
         btnUpdate: "Update Password",
         openHome: "Open AI Memo Wrap home",
+        nextStepsTitle: "Next steps",
+        nextStepsListHtml:
+          "<li>Return to the AI Memo Wrap extension panel.</li><li>Enter the same email and password in Cloud Sync.</li><li>Click Sign In (this page does not auto-login your extension).</li>",
+        nextStepsTip:
+          "If Chrome blocks opening extension pages from web, open chrome://extensions manually and launch AI Memo Wrap.",
+        btnOpenExt: "Open Extensions Page",
+        btnCopySteps: "Copy sign-in steps",
+        copiedSteps: "Sign-in steps copied.",
         errMismatch: "Passwords do not match.",
         errWeak: "Password does not meet policy requirements.",
         errGeneric: "Unable to update password. Please request a new reset email."
@@ -84,6 +112,14 @@
         passwordTip: "至少 8 位，需包含小写、大写和数字。",
         btnUpdate: "更新密码",
         openHome: "打开 AI Memo Wrap 官网",
+        nextStepsTitle: "下一步",
+        nextStepsListHtml:
+          "<li>回到 AI Memo Wrap 扩展侧边栏。</li><li>在 Cloud Sync 中输入同一个邮箱和密码。</li><li>点击 Sign In（该网页不会自动登录扩展）。</li>",
+        nextStepsTip:
+          "如果 Chrome 阻止网页直接打开扩展页，请手动打开 chrome://extensions 并启动 AI Memo Wrap。",
+        btnOpenExt: "打开扩展管理页",
+        btnCopySteps: "复制登录步骤",
+        copiedSteps: "登录步骤已复制。",
         errMismatch: "两次输入的密码不一致。",
         errWeak: "密码不符合安全要求。",
         errGeneric: "密码更新失败，请重新申请重置邮件。"
@@ -96,6 +132,8 @@
     const submitBtn = document.getElementById("submit-btn");
     const newPasswordInput = document.getElementById("new-password");
     const confirmPasswordInput = document.getElementById("confirm-password");
+    const openExtBtn = document.getElementById("open-ext-btn");
+    const copyStepsBtn = document.getElementById("copy-steps-btn");
 
     let lang = localStorage.getItem("aiMemoWrapLang") || (navigator.language.startsWith("zh") ? "zh" : "en");
     const t = () => i18n[lang];
@@ -109,6 +147,11 @@
       document.getElementById("password-tip").textContent = t().passwordTip;
       submitBtn.textContent = t().btnUpdate;
       document.getElementById("open-home").textContent = t().openHome;
+      document.getElementById("next-steps-title").textContent = t().nextStepsTitle;
+      document.getElementById("next-steps-list").innerHTML = t().nextStepsListHtml;
+      document.getElementById("next-steps-tip").textContent = t().nextStepsTip;
+      openExtBtn.textContent = t().btnOpenExt;
+      copyStepsBtn.textContent = t().btnCopySteps;
       langToggle.textContent = lang === "en" ? "中文" : "EN";
     }
 
@@ -125,6 +168,13 @@
         : "mt-6 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700";
     }
 
+    function getPlainStepsText() {
+      const tmp = document.createElement("div");
+      tmp.innerHTML = t().nextStepsListHtml;
+      const lines = Array.from(tmp.querySelectorAll("li")).map((li, idx) => `${idx + 1}. ${li.textContent || ""}`);
+      return lines.join("\n");
+    }
+
     const client = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
       auth: {
         persistSession: false,
@@ -135,6 +185,19 @@
 
     applyLang();
     setStatus(t().statusInit);
+
+    openExtBtn.addEventListener("click", () => {
+      window.open("chrome://extensions/?id=hlmadcmleiholmlengnlodmfobdbmdac", "_blank");
+    });
+
+    copyStepsBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(getPlainStepsText());
+        setStatus(t().copiedSteps);
+      } catch {
+        setStatus(t().copiedSteps);
+      }
+    });
 
     async function init() {
       const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ""));
