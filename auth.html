@@ -49,11 +49,17 @@
       <form id="reset-form" class="mt-6 hidden space-y-3">
         <label class="block">
           <span id="label-password" class="mb-1 block text-xs font-semibold text-slate-700">New Password</span>
-          <input id="new-password" type="password" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-[#2A9DF4]" />
+          <div class="relative">
+            <input id="new-password" type="password" class="w-full rounded-lg border border-slate-300 px-3 py-2 pr-10 text-sm outline-none focus:border-[#2A9DF4]" />
+            <button id="toggle-password-1" type="button" class="absolute right-2 top-1/2 -translate-y-1/2 rounded p-1 text-slate-500 hover:bg-slate-100" aria-label="Show password" title="Show password">👁</button>
+          </div>
         </label>
         <label class="block">
           <span id="label-confirm" class="mb-1 block text-xs font-semibold text-slate-700">Confirm Password</span>
-          <input id="confirm-password" type="password" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-[#2A9DF4]" />
+          <div class="relative">
+            <input id="confirm-password" type="password" class="w-full rounded-lg border border-slate-300 px-3 py-2 pr-10 text-sm outline-none focus:border-[#2A9DF4]" />
+            <button id="toggle-password-2" type="button" class="absolute right-2 top-1/2 -translate-y-1/2 rounded p-1 text-slate-500 hover:bg-slate-100" aria-label="Show password" title="Show password">👁</button>
+          </div>
         </label>
         <p id="password-tip" class="text-xs text-slate-500">Use at least 8 characters, with lowercase, uppercase, and a number.</p>
         <button id="submit-btn" type="submit" class="w-full rounded-xl bg-[#2A9DF4] px-4 py-2.5 text-sm font-bold text-white hover:bg-[#1B86DB]">Update Password</button>
@@ -94,6 +100,8 @@
         btnOpenExt: "Open Extensions Page",
         btnCopySteps: "Copy sign-in steps",
         copiedSteps: "Sign-in steps copied.",
+        showPassword: "Show password",
+        hidePassword: "Hide password",
         errMismatch: "Passwords do not match.",
         errWeak: "Password does not meet policy requirements.",
         errGeneric: "Unable to update password. Please request a new reset email."
@@ -120,6 +128,8 @@
         btnOpenExt: "打开扩展管理页",
         btnCopySteps: "复制登录步骤",
         copiedSteps: "登录步骤已复制。",
+        showPassword: "显示密码",
+        hidePassword: "隐藏密码",
         errMismatch: "两次输入的密码不一致。",
         errWeak: "密码不符合安全要求。",
         errGeneric: "密码更新失败，请重新申请重置邮件。"
@@ -132,6 +142,8 @@
     const submitBtn = document.getElementById("submit-btn");
     const newPasswordInput = document.getElementById("new-password");
     const confirmPasswordInput = document.getElementById("confirm-password");
+    const togglePasswordBtn1 = document.getElementById("toggle-password-1");
+    const togglePasswordBtn2 = document.getElementById("toggle-password-2");
     const openExtBtn = document.getElementById("open-ext-btn");
     const copyStepsBtn = document.getElementById("copy-steps-btn");
 
@@ -152,6 +164,12 @@
       document.getElementById("next-steps-tip").textContent = t().nextStepsTip;
       openExtBtn.textContent = t().btnOpenExt;
       copyStepsBtn.textContent = t().btnCopySteps;
+      const passwordHidden = newPasswordInput.type === "password";
+      const passwordLabel = passwordHidden ? t().showPassword : t().hidePassword;
+      togglePasswordBtn1.setAttribute("aria-label", passwordLabel);
+      togglePasswordBtn1.setAttribute("title", passwordLabel);
+      togglePasswordBtn2.setAttribute("aria-label", passwordLabel);
+      togglePasswordBtn2.setAttribute("title", passwordLabel);
       langToggle.textContent = lang === "en" ? "中文" : "EN";
     }
 
@@ -198,6 +216,16 @@
         setStatus(t().copiedSteps);
       }
     });
+
+    function togglePasswordVisibility() {
+      const nextType = newPasswordInput.type === "password" ? "text" : "password";
+      newPasswordInput.type = nextType;
+      confirmPasswordInput.type = nextType;
+      applyLang();
+    }
+
+    togglePasswordBtn1.addEventListener("click", togglePasswordVisibility);
+    togglePasswordBtn2.addEventListener("click", togglePasswordVisibility);
 
     async function init() {
       const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ""));
