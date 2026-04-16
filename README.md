@@ -10,7 +10,7 @@
   <a href="https://zoezyzy.github.io/AI-Memo-Wrap-Intro/">Home</a> ·
   <a href="https://zoezyzy.github.io/AI-Memo-Wrap-Intro/features.html">Features</a> ·
   <a href="https://zoezyzy.github.io/AI-Memo-Wrap-Intro/demo.html">H5 Demo</a> ·
-  <a href="https://chromewebstore.google.com/search/AI%20Memo%20Wrap">Install</a>
+  <a href="https://chromewebstore.google.com/detail/ai-memo-wrap/hlmadcmleiholmlengnlodmfobdbmdac">Install</a>
 </p>
 
 ## Why AI Memo Wrap
