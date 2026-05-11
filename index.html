@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AI Memo Wrap is an AI-native Chrome extension for highlight capture, workflow-safe drafting, memo tagging, sharing, and Notion sync." />
-  <title>AI Memo Wrap | Product Overview</title>
+  <meta name="description" content="AI Memo Wrap is an AI web clipper for saving webpage highlights as searchable notes with tags, categories, batch export, and optional Notion sync." />
+  <title>AI Memo Wrap | AI Web Clipper for Searchable Notes</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -53,11 +53,11 @@
     <section class="mx-auto w-full max-w-6xl px-6 pb-16 pt-20 md:pt-24">
       <div class="grid items-center gap-12 md:grid-cols-[1.1fr_0.9fr]">
         <div>
-          <p id="hero-tag" class="mb-4 inline-flex rounded-full bg-sky-100 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.2em] text-sky-700">AI-native knowledge capture</p>
+          <p id="hero-tag" class="mb-4 inline-flex rounded-full bg-sky-100 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.2em] text-sky-700">AI web clipper for searchable notes</p>
           <h1 id="hero-title" data-html="1" class="hero-title mb-6 text-5xl font-extrabold md:text-7xl">
-            Capture in seconds.<br /><span class="bg-gradient-to-r from-[var(--brand-sky)] to-[var(--brand-cyan)] bg-clip-text text-transparent">Organize forever.</span>
+            Highlight text.<br /><span class="bg-gradient-to-r from-[var(--brand-sky)] to-[var(--brand-cyan)] bg-clip-text text-transparent">Click Wrap.</span>
           </h1>
-          <p id="hero-desc" class="mb-8 max-w-xl text-lg leading-relaxed text-slate-600">AI Memo Wrap turns webpage highlights into structured memos, tasks, tags, and share-ready outputs synced to Notion.</p>
+          <p id="hero-desc" class="mb-8 max-w-xl text-lg leading-relaxed text-slate-600">Save useful passages from any webpage as organized notes with tags, categories, search, batch export, and optional Notion sync.</p>
           <div class="flex flex-wrap items-center gap-4">
             <a id="hero-cta-install" href="https://chromewebstore.google.com/detail/ai-memo-wrap/hlmadcmleiholmlengnlodmfobdbmdac" target="_blank" rel="noopener noreferrer" class="rounded-2xl bg-[var(--brand-sky)] px-7 py-3 text-sm font-extrabold text-white soft-shadow hover:bg-sky-600">Install Now</a>
             <a id="hero-cta-features" href="features.html" class="rounded-2xl border border-slate-200 bg-white px-7 py-3 text-sm font-bold text-slate-700 hover:border-slate-400">View Features</a>
@@ -67,32 +67,47 @@
         <div class="soft-shadow rounded-3xl border border-slate-100 bg-white p-6">
           <p id="what-title" class="mb-4 text-sm font-bold text-slate-500">What you get</p>
           <ul class="space-y-4 text-sm text-slate-700">
-            <li class="rounded-2xl bg-slate-50 p-4"><p id="g1t" class="font-extrabold text-slate-900">One-click capture</p><p id="g1d" class="mt-1">Highlight and save context from any page instantly.</p></li>
-            <li class="rounded-2xl bg-slate-50 p-4"><p id="g2t" class="font-extrabold text-slate-900">Memo tags</p><p id="g2d" class="mt-1">Organize with tag filters and quick #tag retrieval.</p></li>
-            <li class="rounded-2xl bg-slate-50 p-4"><p id="g3t" class="font-extrabold text-slate-900">Workflow-safe draft pad</p><p id="g3d" class="mt-1">Keep AI suggestions while editing tools that may close in-app chat (e.g., Shopify Flow email blocks).</p></li>
-            <li class="rounded-2xl bg-slate-50 p-4"><p id="g4t" class="font-extrabold text-slate-900">Notion sync</p><p id="g4d" class="mt-1">Push structured records into your Notion database.</p></li>
+            <li class="rounded-2xl bg-slate-50 p-4"><p id="g1t" class="font-extrabold text-slate-900">One-click web capture</p><p id="g1d" class="mt-1">Highlight text and save it without copying into scattered notes.</p></li>
+            <li class="rounded-2xl bg-slate-50 p-4"><p id="g2t" class="font-extrabold text-slate-900">Searchable knowledge base</p><p id="g2d" class="mt-1">Find notes with search, #tags, categories, and sessions.</p></li>
+            <li class="rounded-2xl bg-slate-50 p-4"><p id="g3t" class="font-extrabold text-slate-900">Batch output</p><p id="g3d" class="mt-1">Copy rich digests, export CSV, or prepare reusable content blocks.</p></li>
+            <li class="rounded-2xl bg-slate-50 p-4"><p id="g4t" class="font-extrabold text-slate-900">Local-first privacy</p><p id="g4d" class="mt-1">Use local storage by default; cloud and Notion sync are optional.</p></li>
           </ul>
         </div>
       </div>
     </section>
 
     <section class="mx-auto w-full max-w-6xl px-6 py-12">
+      <div class="mb-8 max-w-3xl">
+        <p id="showcase-tag" class="mb-3 text-xs font-black uppercase tracking-[0.2em] text-sky-700">Chrome Web Store preview</p>
+        <h2 id="showcase-title" class="text-3xl font-extrabold tracking-tight md:text-4xl">From highlight to organized notes</h2>
+        <p id="showcase-desc" class="mt-3 text-lg leading-relaxed text-slate-600">A five-step view of the AI Memo Wrap workflow: capture, organize, export, and keep control of your data.</p>
+      </div>
+      <div class="grid gap-5 md:grid-cols-2">
+        <img src="assets/screenshots/01-highlight-wrap.png" alt="Highlight text and click Wrap" class="rounded-3xl border border-slate-100 bg-white soft-shadow" />
+        <img src="assets/screenshots/02-searchable-notes.png" alt="Turn web research into searchable notes" class="rounded-3xl border border-slate-100 bg-white soft-shadow" />
+        <img src="assets/screenshots/03-organize-workflow.png" alt="Organize with tags categories and sessions" class="rounded-3xl border border-slate-100 bg-white soft-shadow" />
+        <img src="assets/screenshots/04-export-notion.png" alt="Batch copy export or sync to Notion" class="rounded-3xl border border-slate-100 bg-white soft-shadow" />
+        <img src="assets/screenshots/05-local-first.png" alt="Local-first privacy and optional cloud sync" class="rounded-3xl border border-slate-100 bg-white soft-shadow md:col-span-2" />
+      </div>
+    </section>
+
+    <section class="mx-auto w-full max-w-6xl px-6 py-12">
       <h2 id="how-title" class="mb-8 text-3xl font-extrabold tracking-tight md:text-4xl">Core workflow</h2>
       <div class="grid gap-5 md:grid-cols-4">
-        <article class="rounded-2xl border border-slate-100 bg-white p-6 soft-shadow"><p class="text-xs font-black text-sky-700" id="s1">STEP 1</p><h3 class="mt-2 text-xl font-extrabold" id="s1t">Capture</h3><p class="mt-2 text-slate-600" id="s1d">Highlight key content on any page.</p></article>
-        <article class="rounded-2xl border border-slate-100 bg-white p-6 soft-shadow"><p class="text-xs font-black text-sky-700" id="s2">STEP 2</p><h3 class="mt-2 text-xl font-extrabold" id="s2t">Wrap</h3><p class="mt-2 text-slate-600" id="s2d">Generate memo/task with AI context.</p></article>
-        <article class="rounded-2xl border border-slate-100 bg-white p-6 soft-shadow"><p class="text-xs font-black text-sky-700" id="s3">STEP 3</p><h3 class="mt-2 text-xl font-extrabold" id="s3t">Tag & Share</h3><p class="mt-2 text-slate-600" id="s3d">Apply tags and produce shareable digest.</p></article>
-        <article class="rounded-2xl border border-slate-100 bg-white p-6 soft-shadow"><p class="text-xs font-black text-sky-700" id="s4">STEP 4</p><h3 class="mt-2 text-xl font-extrabold" id="s4t">Sync</h3><p class="mt-2 text-slate-600" id="s4d">Sync to Notion and continue execution.</p></article>
+        <article class="rounded-2xl border border-slate-100 bg-white p-6 soft-shadow"><p class="text-xs font-black text-sky-700" id="s1">STEP 1</p><h3 class="mt-2 text-xl font-extrabold" id="s1t">Highlight</h3><p class="mt-2 text-slate-600" id="s1d">Select useful text on any webpage.</p></article>
+        <article class="rounded-2xl border border-slate-100 bg-white p-6 soft-shadow"><p class="text-xs font-black text-sky-700" id="s2">STEP 2</p><h3 class="mt-2 text-xl font-extrabold" id="s2t">Wrap</h3><p class="mt-2 text-slate-600" id="s2d">Save the snippet with source context.</p></article>
+        <article class="rounded-2xl border border-slate-100 bg-white p-6 soft-shadow"><p class="text-xs font-black text-sky-700" id="s3">STEP 3</p><h3 class="mt-2 text-xl font-extrabold" id="s3t">Organize</h3><p class="mt-2 text-slate-600" id="s3d">Use tags, categories, search, and sessions.</p></article>
+        <article class="rounded-2xl border border-slate-100 bg-white p-6 soft-shadow"><p class="text-xs font-black text-sky-700" id="s4">STEP 4</p><h3 class="mt-2 text-xl font-extrabold" id="s4t">Export</h3><p class="mt-2 text-slate-600" id="s4d">Copy, share, export CSV, or sync to Notion.</p></article>
       </div>
     </section>
 
     <section class="mx-auto w-full max-w-6xl px-6 py-16">
       <div class="rounded-3xl bg-[var(--brand-ink)] p-8 text-white md:flex md:items-center md:justify-between">
         <div class="max-w-2xl">
-          <h2 id="bottom-title" class="text-3xl font-extrabold tracking-tight">Explore full features and visual workflow</h2>
-          <p id="bottom-desc" class="mt-3 text-slate-200">See complete feature coverage including memo tags, sharing, and the graphical Typical Workflow.</p>
+          <h2 id="bottom-title" class="text-3xl font-extrabold tracking-tight">Ready to stop losing useful web highlights?</h2>
+          <p id="bottom-desc" class="mt-3 text-slate-200">Install AI Memo Wrap and turn scattered browsing into a searchable note workflow.</p>
         </div>
-        <a id="bottom-cta" href="features.html" class="mt-6 inline-flex rounded-2xl bg-white px-6 py-3 text-sm font-extrabold text-[var(--brand-ink)] md:mt-0">Go to Features</a>
+        <a id="bottom-cta" href="https://chromewebstore.google.com/detail/ai-memo-wrap/hlmadcmleiholmlengnlodmfobdbmdac" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex rounded-2xl bg-white px-6 py-3 text-sm font-extrabold text-[var(--brand-ink)] md:mt-0">Install from Chrome Web Store</a>
       </div>
     </section>
   </main>
@@ -118,43 +133,49 @@
     const i18n = {
       en: {
         "nav-home": "Home", "nav-features": "Features", "nav-support": "Support", "nav-privacy": "Privacy", "nav-terms": "Terms", "install-cta-top": "Install",
-        "hero-tag": "AI-native knowledge capture",
-        "hero-title": "Capture in seconds.<br><span class='bg-gradient-to-r from-[var(--brand-sky)] to-[var(--brand-cyan)] bg-clip-text text-transparent'>Organize forever.</span>",
-        "hero-desc": "AI Memo Wrap turns webpage highlights into structured memos, tasks, tags, and share-ready outputs synced to Notion.",
+        "hero-tag": "AI web clipper for searchable notes",
+        "hero-title": "Highlight text.<br><span class='bg-gradient-to-r from-[var(--brand-sky)] to-[var(--brand-cyan)] bg-clip-text text-transparent'>Click Wrap.</span>",
+        "hero-desc": "Save useful passages from any webpage as organized notes with tags, categories, search, batch export, and optional Notion sync.",
         "hero-cta-install": "Install Now", "hero-cta-features": "View Features",
         "what-title": "What you get",
-        "g1t": "One-click capture", "g1d": "Highlight and save context from any page instantly.",
-        "g2t": "Memo tags", "g2d": "Organize with tag filters and quick #tag retrieval.",
-        "g3t": "Workflow-safe draft pad", "g3d": "Keep AI suggestions while editing tools that may close in-app chat (e.g., Shopify Flow email blocks).",
-        "g4t": "Notion sync", "g4d": "Push structured records into your Notion database.",
+        "g1t": "One-click web capture", "g1d": "Highlight text and save it without copying into scattered notes.",
+        "g2t": "Searchable knowledge base", "g2d": "Find notes with search, #tags, categories, and sessions.",
+        "g3t": "Batch output", "g3d": "Copy rich digests, export CSV, or prepare reusable content blocks.",
+        "g4t": "Local-first privacy", "g4d": "Use local storage by default; cloud and Notion sync are optional.",
+        "showcase-tag": "Chrome Web Store preview",
+        "showcase-title": "From highlight to organized notes",
+        "showcase-desc": "A five-step view of the AI Memo Wrap workflow: capture, organize, export, and keep control of your data.",
         "how-title": "Core workflow",
-        "s1": "STEP 1", "s1t": "Capture", "s1d": "Highlight key content on any page.",
-        "s2": "STEP 2", "s2t": "Wrap", "s2d": "Generate memo/task with AI context.",
-        "s3": "STEP 3", "s3t": "Tag & Share", "s3d": "Apply tags and produce shareable digest.",
-        "s4": "STEP 4", "s4t": "Sync", "s4d": "Sync to Notion and continue execution.",
-        "bottom-title": "Explore full features and visual workflow",
-        "bottom-desc": "See complete feature coverage including memo tags, sharing, and the graphical Typical Workflow.",
-        "bottom-cta": "Go to Features", "f-features": "Features", "f-support": "Support", "f-privacy": "Privacy", "f-terms": "Terms", "f-contact-label": "Contact:"
+        "s1": "STEP 1", "s1t": "Highlight", "s1d": "Select useful text on any webpage.",
+        "s2": "STEP 2", "s2t": "Wrap", "s2d": "Save the snippet with source context.",
+        "s3": "STEP 3", "s3t": "Organize", "s3d": "Use tags, categories, search, and sessions.",
+        "s4": "STEP 4", "s4t": "Export", "s4d": "Copy, share, export CSV, or sync to Notion.",
+        "bottom-title": "Ready to stop losing useful web highlights?",
+        "bottom-desc": "Install AI Memo Wrap and turn scattered browsing into a searchable note workflow.",
+        "bottom-cta": "Install from Chrome Web Store", "f-features": "Features", "f-support": "Support", "f-privacy": "Privacy", "f-terms": "Terms", "f-contact-label": "Contact:"
       },
       zh: {
         "nav-home": "首页", "nav-features": "功能", "nav-support": "支持", "nav-privacy": "隐私", "nav-terms": "条款", "install-cta-top": "安装",
-        "hero-tag": "AI 原生知识捕获",
-        "hero-title": "秒级捕获灵感。<br><span class='bg-gradient-to-r from-[var(--brand-sky)] to-[var(--brand-cyan)] bg-clip-text text-transparent'>长期沉淀价值。</span>",
-        "hero-desc": "AI Memo Wrap 将网页高亮内容转为结构化备忘、任务、标签和可分享输出，并同步到 Notion。",
+        "hero-tag": "面向可搜索笔记的 AI 网页剪藏器",
+        "hero-title": "高亮文字。<br><span class='bg-gradient-to-r from-[var(--brand-sky)] to-[var(--brand-cyan)] bg-clip-text text-transparent'>点击 Wrap。</span>",
+        "hero-desc": "把任意网页中的有用片段保存为有标签、分类、搜索、批量导出和可选 Notion 同步的结构化笔记。",
         "hero-cta-install": "立即安装", "hero-cta-features": "查看功能",
         "what-title": "你将获得",
-        "g1t": "一键捕获", "g1d": "从任意网页高亮并即时保存上下文。",
-        "g2t": "Memo 标签", "g2d": "通过标签过滤和 #tag 快速检索组织信息。",
-        "g3t": "工作流安全随记板", "g3d": "当工具内置 AI 对话会被编辑动作打断时（如 Shopify Flow 邮件区块），先保留建议再分段粘贴。",
-        "g4t": "Notion 同步", "g4d": "结构化写入你的 Notion 数据库。",
+        "g1t": "一键网页捕获", "g1d": "选中文字即可保存，不再复制到零散文档。",
+        "g2t": "可搜索知识库", "g2d": "通过搜索、#标签、分类和会话找回笔记。",
+        "g3t": "批量输出", "g3d": "复制富文本摘要、导出 CSV，或整理可复用内容块。",
+        "g4t": "本地优先隐私", "g4d": "默认本地存储；云同步和 Notion 同步均为可选。",
+        "showcase-tag": "Chrome Web Store 预览",
+        "showcase-title": "从高亮到有序笔记",
+        "showcase-desc": "用 5 张图展示 AI Memo Wrap 的完整流程：捕获、整理、导出，并掌控你的数据。",
         "how-title": "核心流程",
-        "s1": "步骤 1", "s1t": "捕获", "s1d": "在任意页面高亮关键内容。",
-        "s2": "步骤 2", "s2t": "包裹", "s2d": "用 AI 生成带上下文的备忘/任务。",
-        "s3": "步骤 3", "s3t": "标签与分享", "s3d": "添加标签并生成可分享摘要。",
-        "s4": "步骤 4", "s4t": "同步", "s4d": "同步到 Notion 后继续执行。",
-        "bottom-title": "查看完整功能与图形化流程",
-        "bottom-desc": "在 Features 页面查看更完整能力覆盖，包括 memo tags、分享与 Typical Workflow 图示。",
-        "bottom-cta": "前往 Features", "f-features": "功能", "f-support": "支持", "f-privacy": "隐私", "f-terms": "条款", "f-contact-label": "联系:"
+        "s1": "步骤 1", "s1t": "高亮", "s1d": "在任意网页选中有用文字。",
+        "s2": "步骤 2", "s2t": "Wrap", "s2d": "连同来源上下文一起保存。",
+        "s3": "步骤 3", "s3t": "整理", "s3d": "使用标签、分类、搜索和会话。",
+        "s4": "步骤 4", "s4t": "导出", "s4d": "复制、分享、导出 CSV 或同步到 Notion。",
+        "bottom-title": "准备好不再丢失网页高亮了吗？",
+        "bottom-desc": "安装 AI Memo Wrap，把零散浏览变成可搜索的笔记工作流。",
+        "bottom-cta": "从 Chrome Web Store 安装", "f-features": "功能", "f-support": "支持", "f-privacy": "隐私", "f-terms": "条款", "f-contact-label": "联系:"
       }
     };
 
