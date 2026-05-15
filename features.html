@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AI Memo Wrap features: web highlight capture, searchable notes, tags, categories, sessions, batch export, privacy mode, and optional Notion sync." />
+  <meta name="description" content="AI Memo Wrap features: web highlight capture, slash commands, searchable notes, tags, categories, sessions, batch export, privacy mode, and optional Notion sync." />
   <title>Features | AI Memo Wrap</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -47,17 +47,18 @@
     <section class="mb-12 max-w-3xl">
       <p id="tag" class="mb-4 inline-flex rounded-full bg-sky-100 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.2em] text-sky-700">Product capabilities</p>
       <h1 id="title" class="mb-5 text-5xl font-extrabold tracking-tight md:text-6xl">Features for web research, notes, and knowledge workflows</h1>
-      <p id="desc" class="text-lg leading-relaxed text-slate-600">Capture highlights from any webpage, organize them with tags and categories, then copy, export, or sync them when you are ready.</p>
+      <p id="desc" class="text-lg leading-relaxed text-slate-600">Capture highlights from any webpage, use / commands to move faster, organize with tags and categories, then copy, export, or sync when you are ready.</p>
     </section>
 
     <section class="grid gap-6 md:grid-cols-2">
       <article class="card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f1t" class="mb-3 text-2xl font-extrabold">1) One-Click Highlight Capture</h2><p id="f1d" class="text-slate-600">Select text on any webpage and save with source URL, title, and timestamp.</p></article>
       <article class="card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f2t" class="mb-3 text-2xl font-extrabold">2) Searchable Memo Library</h2><p id="f2d" class="text-slate-600">Turn saved highlights into a lightweight library with titles, source links, and full-text search.</p></article>
-      <article class="card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f3t" class="mb-3 text-2xl font-extrabold">3) Tags, Categories & Sessions</h2><p id="f3d" class="text-slate-600">Use #tag filters, custom categories, and research sessions to group related notes.</p></article>
-      <article class="card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f4t" class="mb-3 text-2xl font-extrabold">4) Rich Copy & Share Digest</h2><p id="f4d" class="text-slate-600">Copy single notes, rich digests, subject lines, previews, body copy, and CTA snippets.</p></article>
-      <article class="card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f5t" class="mb-3 text-2xl font-extrabold">5) Batch Export + Optional Notion Sync</h2><p id="f5d" class="text-slate-600">Select multiple memos, export CSV, copy to clipboard, or sync to your Notion workspace.</p></article>
-      <article class="card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f6t" class="mb-3 text-2xl font-extrabold">6) Local-first + Optional Cloud</h2><p id="f6d" class="text-slate-600">Use local storage by default and enable account-based cloud sync only when needed.</p></article>
-      <article class="card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f7t" class="mb-3 text-2xl font-extrabold">7) Privacy Mode</h2><p id="f7d" class="text-slate-600">Redact source URL and page title for sensitive browsing sessions while still saving the note.</p></article>
+      <article class="card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f3t" class="mb-3 text-2xl font-extrabold">3) Slash Command Menu</h2><p id="f3d" class="text-slate-600">Type / in search to create memos, filter tasks, batch select, export, open settings, or refresh.</p></article>
+      <article class="card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f4t" class="mb-3 text-2xl font-extrabold">4) Tags, Categories & Sessions</h2><p id="f4d" class="text-slate-600">Use #tag filters, custom categories, and research sessions to group related notes.</p></article>
+      <article class="card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f5t" class="mb-3 text-2xl font-extrabold">5) Rich Copy & Share Digest</h2><p id="f5d" class="text-slate-600">Copy single notes, rich digests, subject lines, previews, body copy, and CTA snippets.</p></article>
+      <article class="card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f6t" class="mb-3 text-2xl font-extrabold">6) Batch Export + Optional Notion Sync</h2><p id="f6d" class="text-slate-600">Select multiple memos, export CSV, copy to clipboard, or sync to your Notion workspace.</p></article>
+      <article class="card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f7t" class="mb-3 text-2xl font-extrabold">7) Local-first + Optional Cloud</h2><p id="f7d" class="text-slate-600">Use local storage by default and enable account-based cloud sync only when needed.</p></article>
+      <article class="card rounded-3xl border border-slate-100 bg-white p-7"><h2 id="f8t" class="mb-3 text-2xl font-extrabold">8) Privacy Mode</h2><p id="f8d" class="text-slate-600">Redact source URL and page title for sensitive browsing sessions while still saving the note.</p></article>
     </section>
 
     <section class="mt-14 rounded-3xl border border-slate-100 bg-white p-8 card">
@@ -111,14 +112,15 @@
       en: {
         "nav-home": "Home", "nav-features": "Features", "nav-support": "Support", "nav-privacy": "Privacy", "nav-terms": "Terms", "install-cta-top": "Install",
         "tag": "Product capabilities", "title": "Features for web research, notes, and knowledge workflows",
-        "desc": "Capture highlights from any webpage, organize them with tags and categories, then copy, export, or sync them when you are ready.",
+        "desc": "Capture highlights from any webpage, use / commands to move faster, organize with tags and categories, then copy, export, or sync when you are ready.",
         "f1t": "1) One-Click Highlight Capture", "f1d": "Select text on any webpage and save with source URL, title, and timestamp.",
         "f2t": "2) Searchable Memo Library", "f2d": "Turn saved highlights into a lightweight library with titles, source links, and full-text search.",
-        "f3t": "3) Tags, Categories & Sessions", "f3d": "Use #tag filters, custom categories, and research sessions to group related notes.",
-        "f4t": "4) Rich Copy & Share Digest", "f4d": "Copy single notes, rich digests, subject lines, previews, body copy, and CTA snippets.",
-        "f5t": "5) Batch Export + Optional Notion Sync", "f5d": "Select multiple memos, export CSV, copy to clipboard, or sync to your Notion workspace.",
-        "f6t": "6) Local-first + Optional Cloud", "f6d": "Use local storage by default and enable account-based cloud sync only when needed.",
-        "f7t": "7) Privacy Mode", "f7d": "Redact source URL and page title for sensitive browsing sessions while still saving the note.",
+        "f3t": "3) Slash Command Menu", "f3d": "Type / in search to create memos, filter tasks, batch select, export, open settings, or refresh.",
+        "f4t": "4) Tags, Categories & Sessions", "f4d": "Use #tag filters, custom categories, and research sessions to group related notes.",
+        "f5t": "5) Rich Copy & Share Digest", "f5d": "Copy single notes, rich digests, subject lines, previews, body copy, and CTA snippets.",
+        "f6t": "6) Batch Export + Optional Notion Sync", "f6d": "Select multiple memos, export CSV, copy to clipboard, or sync to your Notion workspace.",
+        "f7t": "7) Local-first + Optional Cloud", "f7d": "Use local storage by default and enable account-based cloud sync only when needed.",
+        "f8t": "8) Privacy Mode", "f8d": "Redact source URL and page title for sensitive browsing sessions while still saving the note.",
         "wf-title": "Typical workflow", "wf-desc": "Graph view of a full capture-to-share execution loop.",
         "uc-title": "Research-to-output scenario", "uc-desc": "Collect quotes, AI answers, competitor claims, product notes, and article snippets, then turn the selected set into a shareable digest or Notion-ready knowledge record.",
         "w1l": "STEP 1", "w1t": "Capture Highlight", "w2l": "STEP 2", "w2t": "AI Wrap Memo/Task", "w3l": "STEP 3", "w3t": "Tag + Share Output", "w4l": "STEP 4", "w4t": "Sync to Notion",
@@ -128,14 +130,15 @@
       zh: {
         "nav-home": "首页", "nav-features": "功能", "nav-support": "支持", "nav-privacy": "隐私", "nav-terms": "条款", "install-cta-top": "安装",
         "tag": "产品能力", "title": "面向网页研究、笔记和知识工作流的功能",
-        "desc": "从任意网页捕获高亮内容，用标签和分类整理，再按需复制、导出或同步。",
+        "desc": "从任意网页捕获高亮内容，用 / 快捷命令加速操作，再用标签和分类整理，按需复制、导出或同步。",
         "f1t": "1) 一键高亮捕获", "f1d": "在任意网页选中文字并保存来源链接、标题与时间。",
         "f2t": "2) 可搜索备忘库", "f2d": "把高亮内容整理为带标题、来源链接和全文搜索的轻量笔记库。",
-        "f3t": "3) 标签、分类与会话", "f3d": "用 #标签过滤、自定义分类和研究会话管理相关笔记。",
-        "f4t": "4) 富文本复制与摘要分享", "f4d": "复制单条笔记、富文本摘要、标题、预览、正文和 CTA 片段。",
-        "f5t": "5) 批量导出 + 可选 Notion 同步", "f5d": "多选 memo 后可导出 CSV、复制到剪贴板，或同步到你的 Notion 工作区。",
-        "f6t": "6) 本地优先 + 可选云同步", "f6d": "默认本地存储，仅在需要时开启账户云同步。",
-        "f7t": "7) 隐私模式", "f7d": "敏感浏览时可隐藏来源 URL 和网页标题，同时保留笔记内容。",
+        "f3t": "3) Slash 快捷命令菜单", "f3d": "在搜索框输入 /，快速新建备忘、筛选任务、批量选择、导出、打开设置或刷新。",
+        "f4t": "4) 标签、分类与会话", "f4d": "用 #标签过滤、自定义分类和研究会话管理相关笔记。",
+        "f5t": "5) 富文本复制与摘要分享", "f5d": "复制单条笔记、富文本摘要、标题、预览、正文和 CTA 片段。",
+        "f6t": "6) 批量导出 + 可选 Notion 同步", "f6d": "多选 memo 后可导出 CSV、复制到剪贴板，或同步到你的 Notion 工作区。",
+        "f7t": "7) 本地优先 + 可选云同步", "f7d": "默认本地存储，仅在需要时开启账户云同步。",
+        "f8t": "8) 隐私模式", "f8d": "敏感浏览时可隐藏来源 URL 和网页标题，同时保留笔记内容。",
         "wf-title": "Typical workflow", "wf-desc": "图形化展示完整的捕获到分享执行闭环。",
         "uc-title": "从研究到输出的场景", "uc-desc": "收集引用、AI 回答、竞品表达、产品笔记和文章片段，再把选中的内容转成可分享摘要或 Notion 知识记录。",
         "w1l": "步骤 1", "w1t": "高亮捕获", "w2l": "步骤 2", "w2t": "AI 包裹备忘/任务", "w3l": "步骤 3", "w3t": "标签 + 分享输出", "w4l": "步骤 4", "w4t": "同步到 Notion",
@@ -145,7 +148,7 @@
     };
 
     const toggle = document.getElementById("lang-toggle");
-    let lang = localStorage.getItem("aiMemoWrapLang") || (navigator.language.startsWith("zh") ? "zh" : "en");
+    let lang = localStorage.getItem("aiMemoWrapLang") || "en";
 
     function applyLang() {
       document.documentElement.lang = lang;
